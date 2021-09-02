@@ -10,5 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: ada-actions/toolchain@ce2020
       - uses: alire-project/setup-alire@latest-devel
       - run: cd example && alr build
