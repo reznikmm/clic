@@ -12,5 +12,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ada-actions/toolchain@ce2020
       - uses: alire-project/setup-alire@latest-devel
-      - run: cd example && alr toolchain --install gnat_native
+      - run: cd example &% alr toolchain --select gprbuild
+      - run: cd example &% alr toolchain --select gnat_native
       - run: cd example && alr build
