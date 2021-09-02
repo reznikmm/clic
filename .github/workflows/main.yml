@@ -7,12 +7,17 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        gnat_version: [10.2, 11.3]
+        gprbuild_version: [21.0.0]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: ada-actions/toolchain@ce2020
       - uses: alire-project/setup-alire@latest-devel
       - run: alr toolchain --disable-assistant
-      - run: alr toolchain --select gprbuild
-      - run: alr toolchain --select gnat_native
+      - run: alr toolchain --select gprbuild=${{ matrix.gprbuild_version }}
+      - run: alr toolchain --select gnat_native=${{ matrix.gnat_version }}
       - run: cd example && alr build
