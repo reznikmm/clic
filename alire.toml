@@ -15,12 +15,14 @@ Command Line Interface Components:
  - User input queries
 """
 
-# TODO: uncomment for alr 1.1.0
-# [configuration]
-# disabled = true # CLIC is an Alire dependency using git submodule, so we can't
-#                 # use the crate configuration here.
+[configuration]
+disabled = true # CLIC is an Alire dependency using git submodule, so we can't
+                # use the crate configuration here.
 
 [[depends-on]]
 aaa = "~0.2.3"
 simple_logging = "^1.2.0"
 ansiada = "~0.1.0"
+
+[[pins]]
+aaa = { url='https://github.com/mosteo/aaa'}
