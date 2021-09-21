@@ -18,5 +18,6 @@ jobs:
       - uses: alire-project/setup-alire@v1
         with:
           toolchain: gprbuild${{ matrix.gprbuild_version }} gnat_native${{ matrix.gnat_version }}
+          toolchain_dir: ./cached_gnat
       - run: alr build
       - run: cd example && alr build
